@@ -1,0 +1,15 @@
+1.
+SELECT Type,LotPrice,HousePrice,
+CASE
+WHEN Type='Lot Only' THEN LotPrice
+ELSE HousePrice
+END AS SellingPrice
+FROM InventoryTbl
+
+
+2.
+UPDATE `CustomerTbl` SET `IntRate`='21' WHERE CustomerNo=739662;
+
+
+3.
+DELETE FROM `CustomerTbl` WHERE CustomerNo=739664;

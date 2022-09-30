@@ -1,0 +1,55 @@
+﻿@model Multiplication
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div>
+         <strong>Range </strong> @Html.EditorFor(m => m.range)<br /><br />
+         <input id = "submit" type="submit" value="submit" >
+    </div>
+   
+
+}  
+        <br /><br />
+      <table  id="DisplayAll" style= "display:none width=100%" class="table table-bordered"> 
+       <tr>
+        <th scope="col">Multiplicand</th>
+        <th scope="col">Multiplier</th>
+        <th scope="col">Product </th>
+      </tr>
+      
+       @for (var i = 1; i <  @Model.range + 1; i++)
+             {  
+                 <tr>
+                      <th >Multipply By @i</th>
+                 </tr>
+            @for (var x = 1; x < 11; x++)
+            {
+                <tr>
+                <td>Multiplicand: @(Model.Multiplicand = i)</td>
+                <td>Multiplier: @x</td>
+                <td>Product: @(Model.Multiplicand * @x)</td>
+              </tr>
+            }  
+            }
+   
+    </table> 
+       
+    
+ 
+<script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script>
+  function myFunction() {     
+        var x = document.getElementById("DisplayAll");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } 
+}
+</script>
+  
+    
+      
